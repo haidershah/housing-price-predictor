@@ -4,9 +4,13 @@
 
 $ python house_price_predictor.py
 
-## License
+## Licenses
+
 https://openaddresses.io
+<br>
 http://www.acgov.org/acdata/terms.htm
+</br>
+https://pypi.org/project/pyzillow/
 
 ### Note
 
