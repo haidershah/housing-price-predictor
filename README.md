@@ -6,11 +6,13 @@ $ python house_price_predictor.py
 
 ## Licenses
 
-https://openaddresses.io
+Address Data - https://openaddresses.io
 <br>
-http://www.acgov.org/acdata/terms.htm
-</br>
-https://pypi.org/project/pyzillow/
+Dublin Address Data - http://www.acgov.org/acdata/terms.htm
+<br>
+Zillow Api - https://www.zillow.com/howto/api/APIOverview.htm
+<br>
+Python Zillow Api Wrapper - https://pypi.org/project/pyzillow/
 
 ### Note
 
