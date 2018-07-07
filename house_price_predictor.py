@@ -3,6 +3,9 @@ import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 
+def diff_month(start_date, end_date):
+    return (start_date.year - end_date.year) * 12 + start_date.month - end_date.month
+
 # Load training data
 import pandas as pd
 df = pd.read_csv('housing_data.csv')
