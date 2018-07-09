@@ -29,10 +29,13 @@ def clean_data(df):
 	return df.drop(df.index[houses_to_remove])
 
 def add_sold_months_ago_column(df):
-	df['sold_months_ago'] = 0
+	sold_months_ago = []
+
 	for ind in df.index:
 		last_sold_date = df['last_sold_date'][ind]
-		df['sold_months_ago'][ind] = diff_month(parse(last_sold_date), datetime.now())
+		sold_months_ago.append(diff_month(parse(last_sold_date), datetime.now()))
+
+	df['sold_months_ago'] = sold_months_ago
 
 # Load training data
 df = pd.read_csv('data/dublin_housing_data.csv')
