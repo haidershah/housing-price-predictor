@@ -31,7 +31,7 @@ last_sold_price - Last time the house was sold
 
 ## Tools
 
-Machine Learning Algorithm - Linear Regression
+Machine Learning Algorithm - Linear Regression <br />
 Machine Learning Library - scikit-learn
 
 ## Licenses
