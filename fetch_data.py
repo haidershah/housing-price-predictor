@@ -22,7 +22,10 @@ def get_house_info(address, unit, zipcode):
 		# if unit value exists, don't make zillow api call
 		if does_unit_exist(unit):
 			house_info.extend(('', address, '', '', '', '', '', '', '', '', ''))
+		elif math.isnan(zipcode): # zipcode info not available
+			house_info.extend(('', address, '', '', '', '', '', '', '', '', ''))
 		else:
+			zipcode = str(int(zipcode))
 			deep_search_response = zillow_data.get_deep_search_results(address, zipcode)
 			result = GetDeepSearchResults(deep_search_response)
 
@@ -85,7 +88,6 @@ for address_array in addresses_array:
 	zipcode = address_array[4]
 
 	address = get_full_address(number, street, unit, city, state)
-	zipcode = str(int(zipcode))
 
 	# if this property has already been downloaded, skip it
 	if address in house_address_set:
