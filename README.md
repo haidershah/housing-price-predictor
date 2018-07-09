@@ -1,8 +1,12 @@
-# Predicts Dublin Housing Prices
+# Dublin Housing Price Predictor
 
-## Deployment Instructions
+Predicts housing prices for Dublin, CA
+
+## Deployment
 
 $ python house_price_predictor.py
+
+## Data
 
 ## Licenses
 
