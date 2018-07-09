@@ -29,6 +29,17 @@ I'm using the following features for my model:
 
 last_sold_price - Last time the house was sold
 
+## Features by importance
+
+A list of all features by their importance (most importance first). This gives us a sense of which features play an important role in defining the price of a house.
+
+1. bath
+2. bed
+3. year_built
+4. sqft
+5. lot
+6. sold_months_ago
+
 ## Tools
 
 Machine Learning Algorithm - Linear Regression <br />
