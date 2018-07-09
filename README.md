@@ -29,6 +29,11 @@ I'm using the following features for my model:
 
 last_sold_price - Last time the house was sold
 
+## Tools
+
+Machine Learning Algorithm - Linear Regression
+Machine Learning Library - scikit-learn
+
 ## Licenses
 
 Address Data - https://openaddresses.io
