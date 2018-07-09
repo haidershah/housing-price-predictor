@@ -15,15 +15,16 @@ def clean_data(df):
 
 	for ind in df.index:
 		sqft = df['sqft'][ind]
+		lot = df['lot'][ind]
 		bed = df['bed'][ind]
 		bath = df['bath'][ind]
-		lot = df['lot'][ind]
+		home_type = df['home_type'][ind]
 		year_built = df['year_built'][ind]
 		last_sold_date = df['last_sold_date'][ind]
 		last_sold_price = df['last_sold_price'][ind]
 
     	# for properties with missing info, don't add them to training data
-		if math.isnan(sqft) or math.isnan(bed) or (bed == 0.0) or math.isnan(bath) or (bath == 0.0) or math.isnan(lot) or math.isnan(year_built) or (not last_sold_date) or math.isnan(last_sold_price):
+		if math.isnan(sqft) or math.isnan(bed) or (bed == 0.0) or math.isnan(bath) or (bath == 0.0) or math.isnan(lot) or pd.isnull(home_type) or math.isnan(year_built) or (not last_sold_date) or math.isnan(last_sold_price) or home_type == 'Miscellaneous' or home_type == 'Cooperative':
 			houses_to_remove.append(ind)
 
 	return df.drop(df.index[houses_to_remove])
@@ -45,6 +46,10 @@ add_sold_months_ago_column(df)
 housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_months_ago']
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
+
+# todo delete
+home_type = np.unique(np.array(df['home_type']))
+print(home_type)
 
 # Split data into training and testing sets
 from sklearn.model_selection import train_test_split
