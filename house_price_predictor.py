@@ -53,7 +53,7 @@ print(home_type)
 
 # Split data into training and testing sets
 from sklearn.model_selection import train_test_split
-housing_features_train, housing_features_test, housing_labels_train, housing_labels_test = train_test_split(housing_features, housing_labels, test_size=0.10, random_state=42)
+housing_features_train, housing_features_test, housing_labels_train, housing_labels_test = train_test_split(housing_features, housing_labels, test_size=0.15, random_state=42)
 
 # Create linear regression object
 regr = linear_model.LinearRegression()
@@ -79,10 +79,10 @@ for x in feature_importance:
 	print(x)
 
 # Calculate accuracy
-# from sklearn.metrics import r2_score
-# score = r2_score(housing_labels_test, housing_labels_pred)
-# accuracy = int(round(score * 100))
-# print ('\nAccuracy:', str(accuracy) + '%')
+from sklearn.metrics import r2_score
+score = r2_score(housing_labels_test, housing_labels_pred)
+accuracy = int(round(score * 100))
+print ('\nAccuracy:', str(accuracy) + '%')
 
 # Predict Rabbani Mansion's value
 rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0])])
@@ -91,3 +91,12 @@ rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))
 rabbani_mansion_formatted = "{:,}".format(rabbani_mansion_pred_round_int)
 print ("\nRabbani Mansion's purchase price: $806,000")
 print ("Rabbani Mansion's current value: $" + str(rabbani_mansion_formatted))
+
+# Plot outputs
+plt.scatter(np.array(df['sqft']), df['last_sold_price'], color="blue", label="train data")
+plt.scatter(housing_features_test[:, 0], housing_labels_test,  color='red', label="test data")
+plt.plot(housing_features_test[:, 0], housing_labels_pred, color='black')
+plt.legend(loc=2)
+plt.xlabel("Square Feet")
+plt.ylabel("Price")
+plt.show()
