@@ -56,9 +56,10 @@ def remove_outliers(features, labels, percentage):
 
 	# remove outliers
 	for index in range(0, num_outliers_to_remove):
-		features = np.delete(features, errors_array.argmax(), axis=0) # delete row
-		labels = np.delete(labels, errors_array.argmax())
-		errors_array = np.delete(errors_array, errors_array.argmax())
+		arg_max_error = errors_array.argmax()
+		features = np.delete(features, arg_max_error, axis=0) # delete row
+		labels = np.delete(labels, arg_max_error)
+		errors_array = np.delete(errors_array, arg_max_error)
 
 	return features, labels
 
@@ -71,6 +72,7 @@ housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_month
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
 
+# Remove outliers
 housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.10)
 
 # todo delete
@@ -79,7 +81,7 @@ print(home_type)
 
 # Split data into training and testing sets
 from sklearn.model_selection import train_test_split
-housing_features_train, housing_features_test, housing_labels_train, housing_labels_test = train_test_split(housing_features, housing_labels, test_size=0.15, random_state=42)
+housing_features_train, housing_features_test, housing_labels_train, housing_labels_test = train_test_split(housing_features, housing_labels, test_size=0.10, random_state=42)
 
 # Create linear regression object
 regr = linear_model.LinearRegression()
