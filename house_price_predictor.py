@@ -38,6 +38,30 @@ def add_sold_months_ago_column(df):
 
 	df['sold_months_ago'] = sold_months_ago
 
+def remove_outliers(features, labels, percentage):
+	lr = linear_model.LinearRegression()
+	lr.fit(features, labels)
+	pred = lr.predict(features)
+
+	errors = []
+
+	# calculate errors
+	for index in range(0, labels.size):
+		error = labels[index] - pred[index]
+		error = error ** 2
+		errors.append(error)
+	errors_array = np.array(errors)
+
+	num_outliers_to_remove = int(percentage * labels.size)
+
+	# remove outliers
+	for index in range(0, num_outliers_to_remove):
+		features = np.delete(features, errors_array.argmax(), axis=0) # delete row
+		labels = np.delete(labels, errors_array.argmax())
+		errors_array = np.delete(errors_array, errors_array.argmax())
+
+	return features, labels
+
 # Load training data
 df = pd.read_csv('data/dublin_housing_data.csv')
 df = clean_data(df)
@@ -46,6 +70,8 @@ add_sold_months_ago_column(df)
 housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_months_ago']
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
+
+housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.10)
 
 # todo delete
 home_type = np.unique(np.array(df['home_type']))
@@ -93,9 +119,10 @@ print ("\nRabbani Mansion's purchase price: $806,000")
 print ("Rabbani Mansion's current value: $" + str(rabbani_mansion_formatted))
 
 # Plot outputs
-plt.scatter(np.array(df['sqft']), df['last_sold_price'], color="blue", label="train data")
+housing_features_sqft = housing_features[:, 0]
+plt.scatter(housing_features_sqft, housing_labels, color="blue", label="train data")
 plt.scatter(housing_features_test[:, 0], housing_labels_test,  color='red', label="test data")
-plt.plot(housing_features_test[:, 0], housing_labels_pred, color='black')
+# plt.plot(housing_features_test[:, 0], housing_labels_pred, color='black')
 plt.legend(loc=2)
 plt.xlabel("Square Feet")
 plt.ylabel("Price")
