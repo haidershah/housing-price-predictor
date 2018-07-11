@@ -10,7 +10,11 @@ $ python house_price_predictor.py
 
 I first retrieved addresses of houses in Dublin, CA from OpenAddresses. Then I made Zillow Api calls to gather the missing info: sqft, bed, bath etc.
 
-## Data Cleaning
+## Preprocessing
+
+Here are the steps I took to preprocess my data:
+
+### Data Cleaning
 
 For houses that don't have information available on Zillow's Api, I didn't add them to the training set. For example if there's a house with missing sqft or bed etc. I ignore it.
 
