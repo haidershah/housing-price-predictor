@@ -20,15 +20,15 @@ For houses that don't have information available on Zillow's Api, I didn't add t
 
 ### One Hot Encoding
 
-Add text
+Home Type is a Categorical Feature in the dataset that comprises of values: Condominium, MultiFamily, SingleFamily, and Townhouse. I've used One Hot Encoding to create 4 new features: is_condominium, is_multi_family, is_single_family, and is_townhouse.
 
 ### Outlier Removal
 
-Add text
+I made a scatter to visualize the dataset. It turned out that I had a few outliers. When running the model with those outliers, I had a negative value for my Accuracy. After removing 10% of outliers from the dataset though, I had a marked improvement in my Accuracy.
 
 ### Feature Scaling
 
-Add text
+Number of bedrooms typically range from 1-5, while lot size are in the thousands so Feature Scaling was an obvious choice.
 
 ## Features
 
@@ -57,6 +57,10 @@ A list of all features by their importance (most importance first). This gives u
 4. sqft
 5. lot
 6. sold_months_ago
+
+## Accuracy
+
+87%
 
 ## Tools
 
