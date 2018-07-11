@@ -1,0 +1,16 @@
+['Condominium' 'MultiFamily2To4' 'SingleFamily' 'Townhouse']
+Total training data: 1272
+Total testing data: 142
+
+Features by importance(most important first):
+bath
+year_built
+sqft
+lot
+sold_months_ago
+bed
+
+Accuracy: 86%
+
+Rabbani Mansion's purchase price: $806,000
+Rabbani Mansion's current value: $846,275
