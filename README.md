@@ -25,6 +25,8 @@ I'm using the following features for my model:
 5. year_built - Year the house was built
 6. sold_months_ago - Number of months from today when the house was last sold
 
+7. added one hot encoding
+
 ## Label
 
 last_sold_price - Last time the house was sold
