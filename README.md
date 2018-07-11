@@ -40,8 +40,10 @@ I'm using the following features for my model:
 4. bath - Number of total bathrooms
 5. year_built - Year the house was built
 6. sold_months_ago - Number of months from today when the house was last sold
-
-7. added one hot encoding
+7. is_single_family - Whether the house is of type: SingleFamily
+8. is_condominium - Whether the house is of type Condominium
+9. is_townhouse - Whether the house is of type Townhouse
+10. is_multi_family - Whether the house is of type Multi Family
 
 ## Label
 
@@ -51,12 +53,16 @@ last_sold_price - Last time the house was sold
 
 A list of all features by their importance (most importance first). This gives us a sense of which features play an important role in defining the price of a house.
 
-1. bath
-2. bed
+1. is_single_family
+2. is_condominium
 3. year_built
 4. sqft
 5. lot
 6. sold_months_ago
+7. bath
+8. bed
+9. is_townhouse
+10. is_multi_family
 
 ## Accuracy
 
