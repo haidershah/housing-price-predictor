@@ -49,7 +49,7 @@ def get_house_info(address, unit, zipcode):
 
 	return house_info
 
-zillow_data = ZillowWrapper('X1-ZWz18haqkyt2q3_ac8os')
+zillow_data = ZillowWrapper('X1-ZWz18hewjbd8uj_7dhgw')
 
 addresses_df = pd.read_csv('data/dublin_addresses.csv')
 addresses_array = np.array(addresses_df[['NUMBER', 'STREET', 'UNIT', 'CITY', 'POSTCODE']])
@@ -77,7 +77,7 @@ print (result.home_size)
 
 for address_array in addresses_array:
 
-	if num_properties_downloaded == 500:
+	if num_properties_downloaded == 1000:
 		break
 
 	number = address_array[0]
