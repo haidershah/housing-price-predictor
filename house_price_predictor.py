@@ -114,14 +114,9 @@ housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
 
 # Scale features
-# from sklearn.preprocessing import MinMaxScaler
-# scaler = MinMaxScaler()
-# housing_features = scaler.fit_transform(housing_features)
-# print(housing_features)
-
-# rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0, 0, 0, 1, 0])])
-# print(rabbani_mansion_features)
-# print(scaler.transform(rabbani_mansion_features))
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+housing_features = scaler.fit_transform(housing_features)
 
 # Remove outliers
 housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.20)
@@ -162,7 +157,8 @@ print ('\nAccuracy:', str(accuracy) + '%')
 
 # Predict Rabbani Mansion's value
 rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0, 0, 0, 1, 0])])
-rabbani_mansion_pred = regr.predict(rabbani_mansion_features).item(0)
+rabbani_mansion_features_scaled = scaler.transform(rabbani_mansion_features)
+rabbani_mansion_pred = regr.predict(rabbani_mansion_features_scaled).item(0)
 rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))
 rabbani_mansion_formatted = "{:,}".format(rabbani_mansion_pred_round_int)
 print ("\nRabbani Mansion's purchase price: $806,000")
@@ -175,4 +171,4 @@ plt.scatter(housing_features_test[:, 0], housing_labels_test,  color='red', labe
 plt.legend(loc=2)
 plt.xlabel("Square Feet")
 plt.ylabel("Price")
-plt.show()
+# plt.show()
