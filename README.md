@@ -24,7 +24,7 @@ Home Type is a Categorical Feature in the dataset that comprises of values: Cond
 
 ### Outlier Removal
 
-I made a scatter to visualize the dataset. It turned out that I had a few outliers. When running the model with those outliers, I had a negative value for my Accuracy. After removing 10% of outliers from the dataset though, I had a marked improvement in my Accuracy.
+I made a scatter to visualize the dataset. It turned out that I had a few outliers. When running the model with those outliers, I had a negative value for my Accuracy. After removing 20% of outliers from the dataset though, I had a marked improvement in my Accuracy.
 
 ### Feature Scaling
 
@@ -66,7 +66,7 @@ A list of all features by their importance (most importance first). This gives u
 
 ## Accuracy
 
-87%
+91%
 
 ## Tools
 

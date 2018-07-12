@@ -49,7 +49,10 @@ def get_house_info(address, unit, zipcode):
 
 	return house_info
 
-zillow_data = ZillowWrapper('X1-ZWz18hg7w22k97_6frtk')
+zillow_data = ZillowWrapper('X1-ZWz18haqkyt2q3_ac8os')
+# X1-ZWz18hg7w22k97_6frtk
+# X1-ZWz18hewjbd8uj_7dhgw
+# X1-ZWz18haqkyt2q3_ac8os
 
 addresses_df = pd.read_csv('data/dublin_addresses.csv')
 addresses_array = np.array(addresses_df[['NUMBER', 'STREET', 'UNIT', 'CITY', 'POSTCODE']])
@@ -96,7 +99,8 @@ for address_array in addresses_array:
 
 	house_info = get_house_info(address, unit, zipcode)
 
-	if house_info: # if we have info for this house
+	# if info is available for this house
+	if house_info:
 		num_properties_downloaded = num_properties_downloaded + 1
 		print (str(num_properties_downloaded) + ' properties downloaded.')
 		housing_data_list.append(house_info)

@@ -18,20 +18,35 @@ def clean_data(df):
 	houses_to_remove = []
 
 	for ind in df.index:
-		sqft = df['sqft'][ind]
-		lot = df['lot'][ind]
-		bed = df['bed'][ind]
-		bath = df['bath'][ind]
-		home_type = df['home_type'][ind]
-		year_built = df['year_built'][ind]
-		last_sold_date = df['last_sold_date'][ind]
-		last_sold_price = df['last_sold_price'][ind]
 
     	# for properties with missing info, don't add them to training data
-		if math.isnan(sqft) or math.isnan(bed) or (bed == 0.0) or math.isnan(bath) or (bath == 0.0) or math.isnan(lot) or pd.isnull(home_type) or math.isnan(year_built) or (not last_sold_date) or math.isnan(last_sold_price) or home_type == 'Miscellaneous' or home_type == 'Cooperative':
+		if is_data_missing(ind, df):
 			houses_to_remove.append(ind)
 
 	return df.drop(df.index[houses_to_remove])
+
+def is_data_missing(index, df):
+	sqft = df['sqft'][index]
+	lot = df['lot'][index]
+	bed = df['bed'][index]
+	bath = df['bath'][index]
+	home_type = df['home_type'][index]
+	year_built = df['year_built'][index]
+	last_sold_date = df['last_sold_date'][index]
+	last_sold_price = df['last_sold_price'][index]
+
+	return math.isnan(sqft) or \
+			math.isnan(lot) or \
+			math.isnan(bed) or \
+			(bed == 0.0) or \
+			math.isnan(bath) or \
+			(bath == 0.0) or \
+			pd.isnull(home_type) or \
+			math.isnan(year_built) or \
+			(not last_sold_date) or \
+			math.isnan(last_sold_price) or \
+			home_type == 'Miscellaneous' or \
+			home_type == 'Cooperative'
 
 def add_sold_months_ago_column(df):
 	sold_months_ago = []
@@ -98,8 +113,18 @@ housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_month
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
 
+# Scale features
+# from sklearn.preprocessing import MinMaxScaler
+# scaler = MinMaxScaler()
+# housing_features = scaler.fit_transform(housing_features)
+# print(housing_features)
+
+# rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0, 0, 0, 1, 0])])
+# print(rabbani_mansion_features)
+# print(scaler.transform(rabbani_mansion_features))
+
 # Remove outliers
-housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.10)
+housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.20)
 
 # Split data into training and testing sets
 from sklearn.model_selection import train_test_split
@@ -144,11 +169,10 @@ print ("\nRabbani Mansion's purchase price: $806,000")
 print ("Rabbani Mansion's current value: $" + str(rabbani_mansion_formatted))
 
 # Plot outputs
-housing_features_sqft = housing_features[:, 0]
-plt.scatter(housing_features_sqft, housing_labels, color="blue", label="train data")
-plt.scatter(housing_features_test[:, 0], housing_labels_test,  color='red', label="test data")
-# plt.plot(housing_features_test[:, 0], housing_labels_pred, color='black')
+housing_features_sqft = housing_features[:, 1]
+plt.scatter(housing_features_sqft, housing_labels, color="blue", label="training data")
+plt.scatter(housing_features_test[:, 0], housing_labels_test,  color='red', label="testing data")
 plt.legend(loc=2)
 plt.xlabel("Square Feet")
 plt.ylabel("Price")
-# plt.show()
+plt.show()
