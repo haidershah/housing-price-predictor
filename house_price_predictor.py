@@ -11,6 +11,9 @@ from sklearn.preprocessing import OneHotEncoder
 
 np.set_printoptions(suppress = True)
 
+def format(number):
+	return "{:,}".format(number)
+
 def diff_month(start_date, end_date):
     return (end_date.year - start_date.year) * 12 + end_date.month - start_date.month
 
@@ -129,8 +132,8 @@ housing_features_train, housing_features_test, housing_labels_train, housing_lab
 # Create linear regression object
 regr = linear_model.LinearRegression()
 
-print ('Total training data:', housing_labels_train.size)
-print ('Total testing data:', housing_labels_test.size)
+print ('Total training data:', format(housing_labels_train.size))
+print ('Total testing data:', format(housing_labels_test.size))
 
 # Train the model using the training sets
 regr.fit(housing_features_train, housing_labels_train)
@@ -160,7 +163,7 @@ rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0, 0, 0, 
 rabbani_mansion_features_scaled = scaler.transform(rabbani_mansion_features)
 rabbani_mansion_pred = regr.predict(rabbani_mansion_features_scaled).item(0)
 rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))
-rabbani_mansion_formatted = "{:,}".format(rabbani_mansion_pred_round_int)
+rabbani_mansion_formatted = format(rabbani_mansion_pred_round_int)
 print ("\nRabbani Mansion's purchase price: $806,000")
 print ("Rabbani Mansion's current value: $" + str(rabbani_mansion_formatted))
 
