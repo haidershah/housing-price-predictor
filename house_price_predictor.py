@@ -23,7 +23,7 @@ def clean_data(df):
 		if is_data_missing(ind, df):
 			houses_to_remove.append(ind)
 
-	return df.drop(df.index[houses_to_remove])
+	df.drop(df.index[houses_to_remove], inplace = True)
 
 def is_data_missing(index, df):
 	sqft = df['sqft'][index]
@@ -104,7 +104,7 @@ def add_one_hot_encoding(df):
 df = pd.read_csv('data/dublin_housing_data.csv')
 
 # preprocess data
-df = clean_data(df)
+clean_data(df)
 add_sold_months_ago_column(df)
 add_one_hot_encoding(df)
 
