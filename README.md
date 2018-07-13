@@ -24,7 +24,7 @@ Home Type is a Categorical Feature in the dataset that comprises of values: Cond
 
 ### Outlier Removal
 
-I made a scatter to visualize the dataset. It turned out that I had a few outliers. When running the model with those outliers, I had a negative value for my Accuracy. After removing 20% of outliers from the dataset though, I had a marked improvement in my Accuracy.
+I made a scatter to visualize the dataset. It turned out that I had a few outliers. When running the model with those outliers, I had a negative value for my Accuracy. After removing 10% of outliers from the dataset though, I had a marked improvement in my Accuracy.
 
 ### Feature Scaling
 
@@ -55,17 +55,18 @@ A list of all features by their importance (most importance first). This gives u
 
 1. sqft
 2. lot
-3. bath
-4. is_multi_family
-5. age
-6. is_single_family
-7. is_condominium
+3. is_multi_family
+4. bath
+5. is_single_family
+6. dist_to_public_trans
+7. age
 8. bed
 9. is_townhouse
+10. is_condominium
 
 ## Accuracy
 
-91%
+89%
 
 ## Next Steps
 
