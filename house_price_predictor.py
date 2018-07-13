@@ -59,7 +59,7 @@ def is_data_missing(index, df):
 			home_type == 'Miscellaneous' or \
 			home_type == 'Cooperative'
 
-def add_sold_months_ago_column(df):
+def add_feature_sold_months_ago(df):
 	sold_months_ago = []
 
 	for ind in df.index:
@@ -116,7 +116,7 @@ df = pd.read_csv('data/dublin_housing_data.csv')
 
 # preprocess data
 clean_data(df)
-add_sold_months_ago_column(df)
+add_feature_sold_months_ago(df)
 add_one_hot_encoding(df)
 
 housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_months_ago',
