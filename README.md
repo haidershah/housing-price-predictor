@@ -71,11 +71,10 @@ A list of all features by their importance (most importance first). This gives u
 
 Here are some ways to improve Accuracy of the model:
 
-1. Add feature accessibility_to_public_transportation
-2. Add feature accessibility_to_freeway
-3. Add feature elementary_school_rating
-4. Add feature middle_school_rating
-5. Add feature high_school_rating
+1. Add feature accessibility_to_freeway
+2. Add feature elementary_school_rating
+3. Add feature middle_school_rating
+4. Add feature high_school_rating
 
 ## Tools
 
