@@ -150,15 +150,20 @@ regr.fit(housing_features_train, housing_labels_train)
 housing_labels_pred = regr.predict(housing_features_test)
 
 # Features by importance
-coef = np.array(regr.coef_)
+coef = np.abs(np.array(regr.coef_))
 coef_index_sort = np.argsort(coef)
 feature_importance = []
 for x in coef_index_sort:
 	feature_importance.append(housing_feature_names[x])
 feature_importance = feature_importance[::-1]
-print('\nFeatures by importance(most important first):')
+index = 1
+print('\nFeatures by importance(most important first):\n')
 for x in feature_importance:
-	print(x)
+	if x == 'sold_months_ago':
+		continue
+
+	print(str(index) + ". " + x)
+	index = index + 1
 
 # Calculate accuracy
 from sklearn.metrics import r2_score
@@ -172,8 +177,9 @@ rabbani_mansion_features_scaled = scaler.transform(rabbani_mansion_features)
 rabbani_mansion_pred = regr.predict(rabbani_mansion_features_scaled).item(0)
 rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))
 rabbani_mansion_formatted = format(rabbani_mansion_pred_round_int)
-print ("\nRabbani Mansion's purchase price: $806,000")
-print ("Rabbani Mansion's current value: $" + str(rabbani_mansion_formatted))
+print('\n7545 Honey Ct, Dublin, CA')
+print ("Sold in May 2017 for: $806,000")
+print ("Current value: $" + str(rabbani_mansion_formatted))
 
 # Plot outputs
 housing_features_sqft = housing_features[:, 1]
