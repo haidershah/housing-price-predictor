@@ -78,8 +78,8 @@ Here are some ways to improve Accuracy of the model:
 
 ## Tools
 
-Machine Learning Algorithm - Linear Regression <br />
-Machine Learning Library - scikit-learn
+Machine Learning Library - scikit-learn <br />
+Machine Learning Algorithm - Linear Regression
 
 ## Licenses
 
@@ -93,4 +93,4 @@ Python Zillow Api Wrapper - https://pypi.org/project/pyzillow/
 <br>
 Python Bart Api Wrapper - https://pypi.org/project/pybart/
 <br>
-Python client for several popular geocoding web services - https://pypi.org/project/geopy/
+Python client for geocoding web services - https://pypi.org/project/geopy/
