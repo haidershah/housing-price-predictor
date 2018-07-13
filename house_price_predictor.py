@@ -68,6 +68,14 @@ def add_feature_sold_months_ago(df):
 
 	df['sold_months_ago'] = sold_months_ago
 
+def add_feature_age(df):
+	age = []
+
+	for year_built in np.array(df['year_built']):
+		age.append(datetime.now().year - year_built)
+
+	df['age'] = age
+
 def remove_outliers(features, labels, percentage):
 	lr = linear_model.LinearRegression()
 	lr.fit(features, labels)
@@ -117,9 +125,10 @@ df = pd.read_csv('data/dublin_housing_data.csv')
 # preprocess data
 clean_data(df)
 add_feature_sold_months_ago(df)
+add_feature_age(df)
 add_one_hot_encoding(df)
 
-housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'year_built', 'sold_months_ago',
+housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'age', 'sold_months_ago',
 				 		'is_condominium', 'is_multi_family', 'is_single_family', 'is_townhouse']
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
@@ -172,7 +181,23 @@ accuracy = int(round(score * 100))
 print ('\nAccuracy:', str(accuracy) + '%')
 
 # Predict Rabbani Mansion's value
-rabbani_mansion_features = np.array([np.array([1920, 7405, 4, 3, 1960, 0, 0, 0, 1, 0])])
+rabbani_mansion_sqft = 1920
+rabbani_mansion_lot = 1920
+rabbani_mansion_bed = 4
+rabbani_mansion_bath = 3
+rabbani_mansion_age = 58
+rabbani_mansion_sold_months_ago = 0 # zero to get current value
+rabbani_mansion_is_condominium = 0
+rabbani_mansion_is_multi_family = 0
+rabbani_mansion_is_single_family = 1
+rabbani_mansion_is_townhouse = 0
+rabbani_mansion_features = np.array([np.array([rabbani_mansion_sqft, rabbani_mansion_lot, 
+												rabbani_mansion_bed, rabbani_mansion_bath,
+												rabbani_mansion_age, rabbani_mansion_sold_months_ago,
+												rabbani_mansion_is_condominium, 
+												rabbani_mansion_is_multi_family, 
+												rabbani_mansion_is_single_family,
+												rabbani_mansion_is_townhouse])])
 rabbani_mansion_features_scaled = scaler.transform(rabbani_mansion_features)
 rabbani_mansion_pred = regr.predict(rabbani_mansion_features_scaled).item(0)
 rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))

@@ -57,7 +57,7 @@ A list of all features by their importance (most importance first). This gives u
 2. lot
 3. bath
 4. is_multi_family
-5. year_built
+5. age
 6. is_single_family
 7. is_condominium
 8. bed
