@@ -18,15 +18,21 @@ def diff_month(start_date, end_date):
     return (end_date.year - start_date.year) * 12 + end_date.month - start_date.month
 
 def clean_data(df):
-	houses_to_remove = []
+	df.drop(df[should_remove_data(df)].index, inplace = True)
 
-	for ind in df.index:
-
-    	# for properties with missing info, don't add them to training data
-		if is_data_missing(ind, df):
-			houses_to_remove.append(ind)
-
-	df.drop(df.index[houses_to_remove], inplace = True)
+def should_remove_data(df):
+	return (df.sqft < 500) | \
+		(df.sqft > 10000) | \
+		(df.lot < 500) | \
+		(df.lot > 1000000) | \
+		(df.bed == 0.0) | \
+		(df.bed > 10) | \
+		(df.bath == 0.0) | \
+		(df.bath > 10) | \
+		(df.last_sold_price < 100000) | \
+		(df.last_sold_price > 10000000) | \
+		(df.home_type == 'Miscellaneous') | \
+		(df.home_type == 'Cooperative')
 
 def is_data_missing(index, df):
 	sqft = df['sqft'][index]
@@ -125,6 +131,7 @@ def add_one_hot_encoding(df):
 df = pd.read_csv('data/dublin_housing_data.csv')
 
 # preprocess data
+df.dropna(inplace = True)
 clean_data(df)
 add_feature_sold_months_ago(df)
 add_feature_age(df)
