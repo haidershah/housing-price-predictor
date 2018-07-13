@@ -1,0 +1,51 @@
+,name,abbr,gtfs_latitude,gtfs_longitude,address,city,county,state,zipcode
+0,12th St. Oakland City Center,12TH,37.803768,-122.271450,1245 Broadway,Oakland,alameda,CA,94612
+1,16th St. Mission,16TH,37.765062,-122.419694,2000 Mission Street,San Francisco,sanfrancisco,CA,94110
+2,19th St. Oakland,19TH,37.808350,-122.268602,1900 Broadway,Oakland,alameda,CA,94612
+3,24th St. Mission,24TH,37.752470,-122.418143,2800 Mission Street,San Francisco,sanfrancisco,CA,94110
+4,Antioch,ANTC,37.995388,-121.780420,1600 Slatten Ranch Road,Antioch,Contra Costa,CA,94509
+5,Ashby,ASHB,37.852803,-122.270062,3100 Adeline Street,Berkeley,alameda,CA,94703
+6,Balboa Park,BALB,37.721585,-122.447506,401 Geneva Avenue,San Francisco,sanfrancisco,CA,94112
+7,Bay Fair,BAYF,37.696924,-122.126514,15242 Hesperian Blvd.,San Leandro,alameda,CA,94578
+8,Castro Valley,CAST,37.690746,-122.075602,3301 Norbridge Dr.,Castro Valley,alameda,CA,94546
+9,Civic Center/UN Plaza,CIVC,37.779732,-122.414123,1150 Market Street,San Francisco,sanfrancisco,CA,94102
+10,Coliseum,COLS,37.753661,-122.196869,7200 San Leandro St.,Oakland,alameda,CA,94621
+11,Colma,COLM,37.684638,-122.466233,365 D Street,Colma,sanmateo,CA,94014
+12,Concord,CONC,37.973737,-122.029095,1451 Oakland Avenue,Concord,contracosta,CA,94520
+13,Daly City,DALY,37.706121,-122.469081,500 John Daly Blvd.,Daly City,sanmateo,CA,94014
+14,Downtown Berkeley,DBRK,37.870104,-122.268133,2160 Shattuck Avenue,Berkeley,alameda,CA,94704
+15,Dublin/Pleasanton,DUBL,37.701687,-121.899179,5801 Owens Dr.,Pleasanton,alameda,CA,94588
+16,El Cerrito del Norte,DELN,37.925086,-122.316794,6400 Cutting Blvd.,El Cerrito,contracosta,CA,94530
+17,El Cerrito Plaza,PLZA,37.902632,-122.298904,6699 Fairmount Avenue,El Cerrito,contracosta,CA,94530
+18,Embarcadero,EMBR,37.792874,-122.397020,298 Market Street,San Francisco,sanfrancisco,CA,94111
+19,Fremont,FRMT,37.557465,-121.976608,2000 BART Way,Fremont,alameda,CA,94536
+20,Fruitvale,FTVL,37.774836,-122.224175,3401 East 12th Street,Oakland,alameda,CA,94601
+21,Glen Park,GLEN,37.733064,-122.433817,2901 Diamond Street,San Francisco,sanfrancisco,CA,94131
+22,Hayward,HAYW,37.669723,-122.087018,699 'B' Street,Hayward,alameda,CA,94541
+23,Lafayette,LAFY,37.893176,-122.124630,3601 Deer Hill Road,Lafayette,contracosta,CA,94549
+24,Lake Merritt,LAKE,37.797027,-122.265180,800 Madison Street,Oakland,alameda,CA,94607
+25,MacArthur,MCAR,37.829065,-122.267040,555 40th Street,Oakland,alameda,CA,94609
+26,Millbrae,MLBR,37.600271,-122.386702,200 North Rollins Road,Millbrae,sanmateo,CA,94030
+27,Montgomery St.,MONT,37.789405,-122.401066,598 Market Street,San Francisco,sanfrancisco,CA,94104
+28,North Berkeley,NBRK,37.873967,-122.283440,1750 Sacramento Street,Berkeley,alameda,CA,94702
+29,North Concord/Martinez,NCON,38.003193,-122.024653,3700 Port Chicago Highway,Concord,contracosta,CA,94520
+30,Oakland International Airport,OAKL,37.713238,-122.212191,4 Airport Drive,Oakland,alameda,CA,94621
+31,Orinda,ORIN,37.878361,-122.183791,11 Camino Pablo,Orinda,contracosta,CA,94563
+32,Pittsburg/Bay Point,PITT,38.018914,-121.945154,1700 West Leland Road,Pittsburg,contracosta,CA,94565
+33,Pittsburg Center,PCTR,38.016941,-121.889457,2099 Railroad Avenue,Pittsburg,Contra Costa,CA,94565
+34,Pleasant Hill/Contra Costa Centre,PHIL,37.928468,-122.056012,1365 Treat Blvd.,Walnut Creek,contracosta,CA,94597
+35,Powell St.,POWL,37.784471,-122.407974,899 Market Street,San Francisco,sanfrancisco,CA,94102
+36,Richmond,RICH,37.936853,-122.353099,1700 Nevin Avenue,Richmond,contracosta,CA,94801
+37,Rockridge,ROCK,37.844702,-122.251371,5660 College Avenue,Oakland,alameda,CA,94618
+38,San Bruno,SBRN,37.637761,-122.416287,1151 Huntington Avenue,San Bruno,sanmateo,CA,94066
+39,San Francisco International Airport,SFIA,37.615966,-122.392409,"International Terminal, Level 3",San Francisco Int'l Airport,sanmateo,CA,94128
+40,San Leandro,SANL,37.721947,-122.160844,1401 San Leandro Blvd.,San Leandro,alameda,CA,94577
+41,South Hayward,SHAY,37.634375,-122.057189,28601 Dixon Street,Hayward,alameda,CA,94544
+42,South San Francisco,SSAN,37.664245,-122.443960,1333 Mission Road,South San Francisco,sanmateo,CA,94080
+43,Union City,UCTY,37.590630,-122.017388,10 Union Square,Union City,alameda,CA,94587
+44,Walnut Creek,WCRK,37.905522,-122.067527,200 Ygnacio Valley Road,Walnut Creek,contracosta,CA,94596
+45,Warm Springs/South Fremont,WARM,37.502171,-121.939313,45193 Warm Springs Blvd,Fremont,alameda,CA,94539
+46,West Dublin/Pleasanton,WDUB,37.699756,-121.928240,6501 Golden Gate Drive,Dublin,alameda,CA,94568
+47,West Oakland,WOAK,37.804872,-122.295140,1451 7th Street,Oakland,alameda,CA,94607
+48,East Dublin,,37.703178,-121.899423,,Dublin,alameda,CA,94568
+49,West Pleasanton,,37.698888,-121.928104,,Pleasanton,alameda,CA,94588
