@@ -1,16 +1,21 @@
-['Condominium' 'MultiFamily2To4' 'SingleFamily' 'Townhouse']
-Total training data: 1272
-Total testing data: 142
+Total training data: 1,227
+Total testing data: 137
 
 Features by importance(most important first):
-bath
-year_built
-sqft
-lot
-sold_months_ago
-bed
 
-Accuracy: 86%
+1. sqft
+2. lot
+3. is_multi_family
+4. bath
+5. is_single_family
+6. dist_to_public_trans
+7. age
+8. bed
+9. is_townhouse
+10. is_condominium
 
-Rabbani Mansion's purchase price: $806,000
-Rabbani Mansion's current value: $846,275
+Accuracy: 89%
+
+7545 Honey Ct, Dublin, CA
+Sold in May 2017 for: $806,000
+Current value: $835,296

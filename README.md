@@ -8,7 +8,11 @@ $ python house_price_predictor.py
 
 ## Data
 
-I first retrieved addresses of houses in Dublin, CA from OpenAddresses. Then I made Zillow Api calls to gather the missing info: sqft, bed, bath etc.
+Here's how I gathered the data:
+
+1) From OpenAddresses I retrieved addresses of houses in Dublin, CA.
+2) I made an Api call to Zillow to get sqft, lot, bed, bath, last sold date, and last sold price info.
+3) I made an Api call to Bart to get a list of public transportation stations. Then for each house I calculated the distance between it and the closets public transportation station.
 
 ## Preprocessing
 
@@ -40,10 +44,11 @@ I'm using the following features for my model:
 4. bath - Number of total bathrooms
 5. year_built - Year the house was built
 6. sold_months_ago - Number of months from today when the house was last sold
-7. is_single_family - Whether the house is of type: SingleFamily
-8. is_condominium - Whether the house is of type Condominium
-9. is_townhouse - Whether the house is of type Townhouse
-10. is_multi_family - Whether the house is of type Multi Family
+7. dist_to_public_trans - Distance to the closest public transportation station
+8. is_single_family - Whether the house is of type: SingleFamily
+9. is_condominium - Whether the house is of type Condominium
+10. is_townhouse - Whether the house is of type Townhouse
+11. is_multi_family - Whether the house is of type Multi Family
 
 ## Label
 
