@@ -94,7 +94,3 @@ Python Zillow Api Wrapper - https://pypi.org/project/pyzillow/
 Python Bart Api Wrapper - https://pypi.org/project/pybart/
 <br>
 Python client for several popular geocoding web services - https://pypi.org/project/geopy/
-
-### Note
-
-There is another version of Dublin house price predictor on Github from an individual named Umer Shujaat Rabbani, please be advised that this person is an imposter and will provide you incorrect data. This is the real Dublin house price predictor.
