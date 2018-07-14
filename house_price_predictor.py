@@ -103,7 +103,7 @@ def remove_outliers(features, labels, percentage):
 	# remove outliers
 	for index in range(0, num_outliers_to_remove):
 		arg_max_error = errors_array.argmax()
-		features = np.delete(features, arg_max_error, axis=0) # delete row
+		features = np.delete(features, arg_max_error, axis = 0) # delete row
 		labels = np.delete(labels, arg_max_error)
 		errors_array = np.delete(errors_array, arg_max_error)
 
@@ -148,7 +148,7 @@ scaler = MinMaxScaler()
 housing_features = scaler.fit_transform(housing_features)
 
 # Remove outliers
-housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.10)
+housing_features, housing_labels = remove_outliers(housing_features, housing_labels, percentage = 0.20)
 
 # Split data into training and testing sets
 from sklearn.model_selection import train_test_split

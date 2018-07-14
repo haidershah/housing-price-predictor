@@ -116,7 +116,7 @@ bart_data_df = pd.read_csv(bart_data_file_name)
 bart_data_array = np.array(bart_data_df[['zipcode', 'gtfs_latitude', 'gtfs_longitude']])
 
 # get zillow api key
-with open("./bin/config/zillow_key_3.conf", 'r') as f:
+with open("./bin/config/zillow_key_1.conf", 'r') as f:
     key = f.readline().replace("\n", "")
 
 zillow_data = ZillowWrapper(key)
