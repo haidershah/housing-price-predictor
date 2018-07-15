@@ -59,11 +59,11 @@ last_sold_price - Last time the house was sold
 A list of all features by their importance (most importance first). This gives us a sense of which features play an important role in defining the price of a house.
 
 1. sqft
-2. lot
-3. bath
-4. is_multi_family
+2. is_multi_family
+3. lot
+4. dist_to_public_trans
 5. is_single_family
-6. dist_to_public_trans
+6. bath
 7. age
 8. bed
 9. is_condominium
@@ -71,7 +71,7 @@ A list of all features by their importance (most importance first). This gives u
 
 ## Accuracy
 
-92%
+91%
 
 ## Next Steps
 

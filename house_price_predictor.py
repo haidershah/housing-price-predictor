@@ -32,40 +32,9 @@ def should_remove_data(df):
 		(df.last_sold_price < 100000) | \
 		(df.last_sold_price > 10000000) | \
 		(df.home_type == 'Miscellaneous') | \
-		(df.home_type == 'Cooperative')
-
-def is_data_missing(index, df):
-	sqft = df['sqft'][index]
-	lot = df['lot'][index]
-	bed = df['bed'][index]
-	bath = df['bath'][index]
-	home_type = df['home_type'][index]
-	year_built = df['year_built'][index]
-	last_sold_date = df['last_sold_date'][index]
-	last_sold_price = df['last_sold_price'][index]
-	dist_to_public_trans = df['dist_to_public_trans'][index]
-
-	return math.isnan(sqft) or \
-			sqft < 500 or \
-			sqft > 10000 or \
-			math.isnan(lot) or \
-			lot < 500 or \
-			lot > 1000000 or \
-			math.isnan(bed) or \
-			bed == 0.0 or \
-			bed > 10 or \
-			math.isnan(bath) or \
-			bath == 0.0 or \
-			bath > 10 or \
-			pd.isnull(home_type) or \
-			math.isnan(year_built) or \
-			(not last_sold_date) or \
-			math.isnan(last_sold_price) or \
-			last_sold_price < 100000 or \
-			last_sold_price > 10000000 or \
-			home_type == 'Miscellaneous' or \
-			home_type == 'Cooperative' or \
-			math.isnan(dist_to_public_trans)
+		(df.home_type == 'Cooperative') | \
+		(df.home_type == 'Duplex') | \
+		(df.home_type == 'Mobile')
 
 def add_feature_sold_months_ago(df):
 	sold_months_ago = []
