@@ -161,13 +161,16 @@ accuracy = int(round(score * 100))
 print ('\nAccuracy:', str(accuracy) + '%')
 
 # Predict Rabbani Mansion's value
+rabbani_mansion_actual_sold_date_str = '19May2017'
+rabbani_mansion_actual_sold_date = datetime.strptime(rabbani_mansion_actual_sold_date_str, '%d%b%Y')
+
 rabbani_mansion_sqft = 1920
 rabbani_mansion_lot = 1920
 rabbani_mansion_bed = 4
 rabbani_mansion_bath = 3
 rabbani_mansion_age = 58
 rabbani_mansion_dist_to_public_trans = 0.729592997803104
-rabbani_mansion_sold_days_ago = 0 # zero to get current value
+rabbani_mansion_sold_days_ago = diff_days(rabbani_mansion_actual_sold_date, datetime.now())
 rabbani_mansion_is_condominium = 0
 rabbani_mansion_is_multi_family = 0
 rabbani_mansion_is_single_family = 1
@@ -185,9 +188,9 @@ rabbani_mansion_features_scaled = scaler.transform(rabbani_mansion_features)
 rabbani_mansion_pred = regr.predict(rabbani_mansion_features_scaled).item(0)
 rabbani_mansion_pred_round_int = int(round(rabbani_mansion_pred))
 rabbani_mansion_formatted = format(rabbani_mansion_pred_round_int)
-print('\n7545 Honey Ct, Dublin, CA')
-print ("Sold in May 2017 for: $806,000")
-print ("Current value: $" + str(rabbani_mansion_formatted))
+print('\n7545 Honey Ct, Dublin, CA was sold on ' + rabbani_mansion_actual_sold_date.strftime('%b %d, %Y'))
+print ('Actual price: $806,000')
+print ('Model predicted price: $' + str(rabbani_mansion_formatted))
 
 # Plot outputs
 housing_features_sqft = housing_features[:, 1]
