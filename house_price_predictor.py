@@ -14,8 +14,10 @@ np.set_printoptions(suppress = True)
 def format(number):
 	return "{:,}".format(number)
 
-def diff_month(start_date, end_date):
-    return (end_date.year - start_date.year) * 12 + end_date.month - start_date.month
+# Get number of days between 2 dates
+def diff_days(start_date, end_date):
+    delta = end_date - start_date
+    return delta.days
 
 def clean_data(df):
 	df.drop(df[should_remove_data(df)].index, inplace = True)
@@ -36,14 +38,14 @@ def should_remove_data(df):
 		(df.home_type == 'Duplex') | \
 		(df.home_type == 'Mobile')
 
-def add_feature_sold_months_ago(df):
-	sold_months_ago = []
+def add_feature_sold_days_ago(df):
+	sold_days_ago = []
 
 	for ind in df.index:
 		last_sold_date = df['last_sold_date'][ind]
-		sold_months_ago.append(diff_month(parse(last_sold_date), datetime.now()))
+		sold_days_ago.append(diff_days(parse(last_sold_date), datetime.now()))
 
-	df['sold_months_ago'] = sold_months_ago
+	df['sold_days_ago'] = sold_days_ago
 
 def add_feature_age(df):
 	age = []
@@ -102,11 +104,11 @@ df = pd.read_csv('data/dublin_housing_data.csv')
 # preprocess data
 df.dropna(inplace = True)
 clean_data(df)
-add_feature_sold_months_ago(df)
+add_feature_sold_days_ago(df)
 add_feature_age(df)
 add_one_hot_encoding(df)
 
-housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'age', 'dist_to_public_trans', 'sold_months_ago',
+housing_feature_names = ['sqft', 'lot', 'bed', 'bath', 'age', 'dist_to_public_trans', 'sold_days_ago',
 				 		'is_condominium', 'is_multi_family', 'is_single_family', 'is_townhouse']
 housing_features = np.array(df[housing_feature_names])
 housing_labels = np.array(df['last_sold_price'])
@@ -146,7 +148,7 @@ feature_importance = feature_importance[::-1]
 index = 1
 print('\nFeatures by importance(most important first):\n')
 for x in feature_importance:
-	if x == 'sold_months_ago':
+	if x == 'sold_days_ago':
 		continue
 
 	print(str(index) + ". " + x)
@@ -165,7 +167,7 @@ rabbani_mansion_bed = 4
 rabbani_mansion_bath = 3
 rabbani_mansion_age = 58
 rabbani_mansion_dist_to_public_trans = 0.729592997803104
-rabbani_mansion_sold_months_ago = 0 # zero to get current value
+rabbani_mansion_sold_days_ago = 0 # zero to get current value
 rabbani_mansion_is_condominium = 0
 rabbani_mansion_is_multi_family = 0
 rabbani_mansion_is_single_family = 1
@@ -174,7 +176,7 @@ rabbani_mansion_features = np.array([np.array([rabbani_mansion_sqft, rabbani_man
 												rabbani_mansion_bed, rabbani_mansion_bath,
 												rabbani_mansion_age, 
 												rabbani_mansion_dist_to_public_trans, 
-												rabbani_mansion_sold_months_ago,
+												rabbani_mansion_sold_days_ago,
 												rabbani_mansion_is_condominium, 
 												rabbani_mansion_is_multi_family, 
 												rabbani_mansion_is_single_family,

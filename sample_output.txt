@@ -5,8 +5,8 @@ Features by importance(most important first):
 
 1. sqft
 2. lot
-3. is_multi_family
-4. dist_to_public_trans
+3. dist_to_public_trans
+4. is_multi_family
 5. is_single_family
 6. bed
 7. age
@@ -14,8 +14,8 @@ Features by importance(most important first):
 9. is_townhouse
 10. is_condominium
 
-Accuracy: 92%
+Accuracy: 91%
 
 7545 Honey Ct, Dublin, CA
 Sold in May 2017 for: $806,000
-Current value: $834,960
+Current value: $835,681

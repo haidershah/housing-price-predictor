@@ -43,7 +43,7 @@ I'm using the following features for my model:
 3. bed - Number of total bedrooms
 4. bath - Number of total bathrooms
 5. year_built - Year the house was built
-6. sold_months_ago - Number of months from today when the house was last sold
+6. sold_days_ago - Number of days from today when the house was last sold
 7. dist_to_public_trans - Distance to the closest public transportation station
 8. is_single_family - Whether the house is of type: SingleFamily
 9. is_condominium - Whether the house is of type Condominium
