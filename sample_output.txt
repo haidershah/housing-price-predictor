@@ -14,8 +14,8 @@ Features by importance(most important first):
 9. is_townhouse
 10. is_condominium
 
-Accuracy: 91%
+Accuracy: 92%
 
 7545 Honey Ct, Dublin, CA was sold on May 19, 2017
 Actual price: $806,000
-Model predicted price: $807,262
+Model predicted price: $808,004
