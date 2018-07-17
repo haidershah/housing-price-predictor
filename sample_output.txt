@@ -16,6 +16,6 @@ Features by importance(most important first):
 
 Accuracy: 91%
 
-7545 Honey Ct, Dublin, CA
-Sold in May 2017 for: $806,000
-Current value: $835,681
+7545 Honey Ct, Dublin, CA was sold on May 19, 2017
+Actual price: $806,000
+Model predicted price: $807,262
