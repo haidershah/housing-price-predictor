@@ -1,21 +1,21 @@
-Total training data: 2,888
-Total testing data: 321
+Total training data: 3,789
+Total testing data: 421
 
 Features by importance(most important first):
 
-1. sqft
-2. lot
-3. dist_to_public_trans
+1. is_single_family
+2. is_townhouse
+3. is_condominium
 4. is_multi_family
-5. is_single_family
-6. bed
-7. age
-8. bath
-9. is_townhouse
-10. is_condominium
+5. sqft
+6. dist_to_public_trans
+7. lot
+8. age
+9. bath
+10. bed
 
-Accuracy: 92%
+Accuracy: 93%
 
 7545 Honey Ct, Dublin, CA was sold on May 19, 2017
 Actual price: $806,000
-Model predicted price: $808,004
+Model predicted price: $806,912
