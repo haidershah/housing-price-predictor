@@ -60,18 +60,18 @@ A list of all features by their importance (most importance first). This gives u
 
 1. sqft
 2. lot
-3. is_multi_family
-4. dist_to_public_trans
+3. dist_to_public_trans
+4. is_multi_family
 5. is_single_family
-6. bed
-7. age
+6. age
+7. bed
 8. bath
-9. is_townhouse
-10. is_condominium
+9. is_condominium
+10. is_townhouse
 
 ## Accuracy
 
-92%
+91%
 
 ## Next Steps
 
