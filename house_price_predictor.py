@@ -60,13 +60,9 @@ def remove_outliers(features, labels, percentage):
 	lr.fit(features, labels)
 	pred = lr.predict(features)
 
-	errors = []
-
 	# calculate errors
-	for index in range(0, labels.size):
-		error = labels[index] - pred[index]
-		error = error ** 2
-		errors.append(error)
+	errors = labels - pred
+	errors = errors ** 2
 	errors_array = np.array(errors)
 
 	num_outliers_to_remove = int(percentage * labels.size)
