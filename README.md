@@ -1,4 +1,4 @@
-# Dublin Housing Price Predictor
+# Dublin, CA Housing Price Predictor
 
 Predicts housing prices for Dublin, CA
 
